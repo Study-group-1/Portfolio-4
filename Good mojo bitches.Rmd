@@ -140,10 +140,10 @@ read_data <- function(filename) {
     hr_2 <- data$HR2
     row_number <- seq.int(nrow(data))
     #change participant numbers for study 3 and 4 
-    if (study == 3){
+    if (study == 3) {
     pair <- pair + 10 
     } 
-    else if (study == 4){
+    else if (study == 4) {
     pair <- pair + 20 
     }
     # combine all this data in one dataset
@@ -206,10 +206,10 @@ data1$study <- as.factor(data1$study)
 ####### Remove bad data
 # Altering values 2.5 or more sd's from the mean to 2.5 sd's from the mean.
 removeOuts <- function(ts,threshold){
-  ts[ts > (mean(ts,na.rm=T) +
-             (threshold*sd(ts,na.rm=T))) | 
-       ts < (mean(ts,na.rm=T) -
-             (threshold*sd(ts,na.rm=T)))] = mean(ts,na.rm=T)
+  ts[ts > (mean(ts, na.rm = T) +
+             (threshold * sd(ts, na.rm = T))) | 
+       ts < (mean(ts, na.rm = T) -
+             (threshold * sd(ts, na.rm = T)))] = mean(ts, na.rm = T)
   return(ts)
 }
 threshold = 2.5
